@@ -4,6 +4,26 @@
   background-color: white;
   overflow: hidden;
   box-shadow: 0 2px 6px #c1ced7;
+  margin-bottom: 30px;
+  display: block;
+}
+.posts-index-item-comment {
+  padding: 20px 30px;
+  background-color: white;
+  overflow: hidden;
+  box-shadow: 0 2px 6px #c1ced7;
+  display: block;
+}
+.delete-comment {
+  color: rgb(153, 151, 151);
+}
+.index-detail {
+  display: flex;
+}
+
+.index-detail span {
+  margin-top: 4.5px;
+  margin-right: 4px;
 }
 
 .post-left img {

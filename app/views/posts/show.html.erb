@@ -29,7 +29,40 @@
                 <%= link_to('Delete',"/posts/#{@post.id}/destroy",{method: 'post'})%>
             </div>
             <% end%>
+            <%= form_tag("/comments/#{@post.id}/create") do%>
+            <div class="form">
+                <% @comment.errors.full_messages.each do |message| %>
+                <div class="form-error">
+                    <%= message %>
+                </div>
+                <% end %>
+                <textarea name="content"><%= @comment.content%></textarea>
+                <input type="submit" value="Comment">
+            </div>
+            <% end%>
+        </div>
+        <% @comments.each do |comment| %>
+        <div class="posts-index-item-comment">
+            <div class="post-left">
+                <img src="<%= "/user_images/#{comment.user.image_name}" %>">
+
+            </div>
+            <div class="post-right">
+                <div class="post-user-name">
+                    <%= link_to(comment.user.name, "/users/#{comment.user.id}")%>
+                </div>
+                <%= comment.content %>
+                <% if @current_user.id == comment.user_id%>
+                <div class='post-menus'>
+                    <%= link_to('Delete',"/comments/#{comment.id}/destroy",{method: 'post'})%>
+                </div>
+                <% end%>
+            </div>
+
+
+
 
         </div>
+        <% end %>
     </div>
 </div>
